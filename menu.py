@@ -53,9 +53,8 @@ menu = {
 # 1. Set up order list. Order list will store a list of dictionaries for
 # menu item name, item price, and quantity ordered
 
-
 # Launch the store and present a greeting to the customer
-print("Welcome to the variety food truck.")
+print("Welcome to Sean's Variety Food Truck!")
 
 # Customers may want to order multiple items, so let's create a continuous
 # loop
@@ -118,7 +117,7 @@ while place_order:
                     }
                     i += 1
             # 2. Ask customer to input menu item number
-
+            menu_selection = 
 
             # 3. Check if the customer typed a number
 
