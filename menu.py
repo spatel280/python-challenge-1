@@ -150,9 +150,9 @@ while place_order:
         # Tell the customer they didn't select a number
         print("You didn't select a number.")
 
-    # while True:
-    #     # Ask the customer if they would like to order anything else
-    #     keep_ordering = input("Would you like to keep ordering? (Y)es or (N)o ")
+    while True:
+        # Ask the customer if they would like to order anything else
+        keep_ordering = input("Would you like to keep ordering? (Y)es or (N)o ")
 
         # 5. Check the customer's input
 
