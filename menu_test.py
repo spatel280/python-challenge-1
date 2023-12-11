@@ -145,9 +145,8 @@ while place_order:
                     else:
                         quantity = quantity
                     # Add the item name, price, and quantity to the order list
-                    order_list.append(menu_selection_name.keys())
-                    order_list.append(menu_selection_name.values())
-                    order_list.append(quantity)
+                    menu_selection_name["Quantity"] = quantity
+                    order_list.append(menu_selection_name)
 
                     # Tell the customer that their input isn't valid
                 else:
@@ -195,7 +194,7 @@ print("This is what we are preparing for you:\n")
 
 print("Item name                 | Price  | Quantity")
 print("--------------------------|--------|----------")
-
+print(order_list)
 # 6. Loop through the items in the customer's order
 #for menu_index in range(len(menu)):
 for x in order_list:
@@ -216,6 +215,6 @@ for x in order_list:
 # 11. Calculate the cost of the order using list comprehension
 # Multiply the price by quantity for each item in the order list, then sum()
 # and print the prices.
-item_cost = [quantity * price for price in order_list]
-total_cost = sum(item_cost)
-print(total_cost)
+# item_cost = [quantity * price for price in order_list]
+# total_cost = sum(item_cost)
+# print(total_cost)
