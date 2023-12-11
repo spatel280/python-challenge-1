@@ -50,6 +50,19 @@ menu = {
     }
 }
 
+order_list = [
+  {
+    "Item name": "string",
+    "Price": float,
+    "Quantity": int
+  },
+  {
+    "Item name": "string",
+    "Price": float,
+    "Quantity": int
+  },
+]
+
 menu_dashes = "-" * 42
 
 # 1. Set up order list. Order list will store a list of dictionaries for
@@ -134,11 +147,14 @@ while place_order:
                     menu_selection_name = menu_items[menu_selection]
 
                     # Ask the customer for the quantity of the menu item
-                    
+                    quantity = input(f"How many pieces of {menu_selection_name} would you like to order?\nThe quantity will default to 1 unless otherwise noted.")
 
                     # Check if the quantity is a number, default to 1 if not
-
-
+                    if quantity.isdigit() == False:
+                        print(f"You have not entered a proper number. Only 1 piece of {menu_selection_name} will be provided.")
+                        quantity = 1
+                    else:
+                        quantity = quantity
                     # Add the item name, price, and quantity to the order list
 
 
@@ -188,7 +204,7 @@ print("This is what we are preparing for you:\n")
 
 print("Item name                 | Price  | Quantity")
 print("--------------------------|--------|----------")
-
+print(order_list)
 # 6. Loop through the items in the customer's order
 
     # 7. Store the dictionary items as variables
