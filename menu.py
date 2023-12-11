@@ -136,11 +136,11 @@ while place_order:
                     menu_selection_name = menu_items[menu_selection]
 
                     # Ask the customer for the quantity of the menu item
-                    quantity = input(f"How many {menu_selection_name['Item name']} would you like to order?\n(The quantity will default to 1 unless otherwise noted.) ")
+                    quantity = input(f"\nHow many {menu_selection_name['Item name']} would you like to order?\n(The quantity will default to 1 unless otherwise noted.) ")
 
                     # Check if the quantity is a number, default to 1 if not
                     if quantity.isdigit() == False:
-                        print(f"You have not entered a proper number. Only 1 piece of {menu_selection_name} will be provided.")
+                        print(f"You have not entered a proper number. Only 1 piece of {menu_selection_name['Item name']} will be ordered for you.")
                         quantity = 1
                     else:
                         quantity = quantity
@@ -164,7 +164,7 @@ while place_order:
 
     while True:
         # Ask the customer if they would like to order anything else
-        keep_ordering = input("Would you like to keep ordering? (Y)es or (N)o: ")
+        keep_ordering = input("\nWould you like to keep ordering? (Y)es or (N)o: ")
         print(menu_dashes)
         # 5. Check the customer's input
         if keep_ordering.lower() == "y":
@@ -192,8 +192,8 @@ print("This is what we are preparing for you:\n")
 # Uncomment the following line to check the structure of the order
 #print(order)
 
-print("Item name                 | Price  | Quantity | Cost")
-print("--------------------------|--------|----------|------")
+print("Item name                 | Price  | Quantity | Cost ")
+print("--------------------------|--------|----------|-------")
 
 # 6. Loop through the items in the customer's order
 #for menu_index in range(len(menu)):
@@ -203,12 +203,12 @@ for x in order_list:
     item_name = x['Item name']
     item_price = x['Price']
     item_quantity = x['Quantity']
-    item_cost = int(item_quantity) * float(item_price)
+    item_cost = round(int(item_quantity) * float(item_price), 2)
     
     # 8. Calculate the number of spaces for formatted printing
     num_item_spaces = 25 - len(item_name)
     num_price_spaces = 5 - len(str(item_price))
-    num_quantity_spaces = 8 - len(item_quantity)
+    num_quantity_spaces = 8 - len(str(item_quantity))
 
     # 9. Create space strings
     item_spaces = " " * num_item_spaces
@@ -216,10 +216,10 @@ for x in order_list:
     quantity_spaces = " " * num_quantity_spaces
 
     # 10. Print the item name, price, and quantity
-    print(f"{item_name}{item_spaces} | ${item_price}{price_spaces} | {item_quantity}{quantity_spaces} | {item_cost}")
+    print(f"{item_name}{item_spaces} | ${item_price}{price_spaces} | {item_quantity}{quantity_spaces} | ${item_cost} ")
     subtotal_cost += item_cost
 
-final_order_dashes = "-" * 53
+final_order_dashes = "-" * 54
 print(final_order_dashes)
 
 # 11. Calculate the cost of the order using list comprehension
