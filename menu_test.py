@@ -136,7 +136,7 @@ while place_order:
                     menu_selection_name = menu_items[menu_selection]
 
                     # Ask the customer for the quantity of the menu item
-                    quantity = input(f"How many pieces of {menu_selection_name} would you like to order?\nThe quantity will default to 1 unless otherwise noted. ")
+                    quantity = input(f"How many {menu_selection_name['Item name']} would you like to order?\n(The quantity will default to 1 unless otherwise noted.) ")
 
                     # Check if the quantity is a number, default to 1 if not
                     if quantity.isdigit() == False:
@@ -197,7 +197,7 @@ print("--------------------------|--------|----------|------")
 
 # 6. Loop through the items in the customer's order
 #for menu_index in range(len(menu)):
-total_cost = 0
+subtotal_cost = 0
 for x in order_list:
     # 7. Store the dictionary items as variables
     item_name = x['Item name']
@@ -217,12 +217,14 @@ for x in order_list:
 
     # 10. Print the item name, price, and quantity
     print(f"{item_name}{item_spaces} | ${item_price}{price_spaces} | {item_quantity}{quantity_spaces} | {item_cost}")
-    total_cost += item_cost
+    subtotal_cost += item_cost
+
+final_order_dashes = "-" * 53
+print(final_order_dashes)
 
 # 11. Calculate the cost of the order using list comprehension
 # Multiply the price by quantity for each item in the order list, then sum()
 # and print the prices.
-#item_cost = [int(item_quantity) * float(item_price) for x in order_list]
-#total_cost = sum(item_cost)
-print(menu_dashes)
-print(f"\nYour total bill will be ${total_cost}.")
+
+total_cost = sum([float(x['Price']) * int(x['Quantity']) for x in order_list])
+print(f"Your total bill will be ${total_cost:.2f}.\nPlease have a great day!")
