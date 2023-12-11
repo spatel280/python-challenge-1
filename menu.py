@@ -150,39 +150,40 @@ while place_order:
 
                     # Tell the customer that their input isn't valid
                 else:
-                    print(f"{menu_selection} was not a sub-menu option.")
+                    print(f"{menu_selection} was not a sub-menu option. Please try again.")
 
                 # Tell the customer they didn't select a menu option
             else:
-                print("You didn't select a number.")
+                print("You didn't select a number. Please try again.")
         else:
             # Tell the customer they didn't select a menu option
-            print(f"{menu_category} was not a menu option.")
+            print(f"{menu_category} was not a menu option. Please try again.")
     else:
         # Tell the customer they didn't select a number
-        print("You didn't select a number.")
+        print("You didn't select a number. Please try again.")
 
     while True:
         # Ask the customer if they would like to order anything else
         keep_ordering = input("\nWould you like to keep ordering? (Y)es or (N)o: ")
         print(menu_dashes)
         # 5. Check the customer's input
-        if keep_ordering.lower() == "y":
+        match keep_ordering.lower():
             # Keep ordering
-            place_order = True
+            case 'y':
+                place_order = True
             # Exit the keep ordering question loop
-            break
+                break
             # Complete the order
-        elif keep_ordering.lower() == "n":
-            place_order = False
+            case 'n':
+                place_order = False
             # Since the customer decided to stop ordering, thank them for
             # their order
-            print("\nThank you for ordering from Sean's Variety Food Truck \n")
+                print("\nThank you for ordering from Sean's Variety Food Truck \n")
             # Exit the keep ordering question loop
-            break
+                break
             # Tell the customer to try again
-        else:
-            print("I didn't understand your response. Please try again.")
+            case _:
+                print("I didn't understand your response. Please try again.")
             
 
 
