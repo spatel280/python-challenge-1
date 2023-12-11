@@ -177,7 +177,7 @@ while place_order:
             place_order = False
             # Since the customer decided to stop ordering, thank them for
             # their order
-            print("\n Thank you for ordering from Sean's Variety Food Truck \n")
+            print("\nThank you for ordering from Sean's Variety Food Truck \n")
             # Exit the keep ordering question loop
             break
             # Tell the customer to try again
@@ -192,29 +192,37 @@ print("This is what we are preparing for you:\n")
 # Uncomment the following line to check the structure of the order
 #print(order)
 
-print("Item name                 | Price  | Quantity")
-print("--------------------------|--------|----------")
-print(order_list)
+print("Item name                 | Price  | Quantity | Cost")
+print("--------------------------|--------|----------|------")
+
 # 6. Loop through the items in the customer's order
 #for menu_index in range(len(menu)):
+total_cost = 0
 for x in order_list:
-    break
     # 7. Store the dictionary items as variables
-
-
+    item_name = x['Item name']
+    item_price = x['Price']
+    item_quantity = x['Quantity']
+    item_cost = int(item_quantity) * float(item_price)
+    
     # 8. Calculate the number of spaces for formatted printing
-
-
+    num_item_spaces = 25 - len(item_name)
+    num_price_spaces = 5 - len(str(item_price))
+    num_quantity_spaces = 8 - len(item_quantity)
 
     # 9. Create space strings
-
+    item_spaces = " " * num_item_spaces
+    price_spaces = " " * num_price_spaces
+    quantity_spaces = " " * num_quantity_spaces
 
     # 10. Print the item name, price, and quantity
-
+    print(f"{item_name}{item_spaces} | ${item_price}{price_spaces} | {item_quantity}{quantity_spaces} | {item_cost}")
+    total_cost += item_cost
 
 # 11. Calculate the cost of the order using list comprehension
 # Multiply the price by quantity for each item in the order list, then sum()
 # and print the prices.
-# item_cost = [quantity * price for price in order_list]
-# total_cost = sum(item_cost)
-# print(total_cost)
+#item_cost = [int(item_quantity) * float(item_price) for x in order_list]
+#total_cost = sum(item_cost)
+print(menu_dashes)
+print(f"\nYour total bill will be ${total_cost}.")
