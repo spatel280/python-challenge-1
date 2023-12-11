@@ -50,18 +50,7 @@ menu = {
     }
 }
 
-order_list = [
-  {
-    "Item name": "string",
-    "Price": float,
-    "Quantity": int
-  },
-  {
-    "Item name": "string",
-    "Price": float,
-    "Quantity": int
-  },
-]
+order_list = []
 
 menu_dashes = "-" * 42
 
@@ -135,7 +124,7 @@ while place_order:
                     i += 1
             print(menu_dashes)
             # 2. Ask customer to input menu item number
-            menu_selection = input(f"What {menu_category_name} item would you like to order? ")
+            menu_selection = input(f"What {menu_category_name} item number would you like to order? ")
             # 3. Check if the customer typed a number
             if menu_selection.isdigit():
                 # Convert the menu selection to an integer
@@ -147,7 +136,7 @@ while place_order:
                     menu_selection_name = menu_items[menu_selection]
 
                     # Ask the customer for the quantity of the menu item
-                    quantity = input(f"How many pieces of {menu_selection_name} would you like to order?\nThe quantity will default to 1 unless otherwise noted.")
+                    quantity = input(f"How many pieces of {menu_selection_name} would you like to order?\nThe quantity will default to 1 unless otherwise noted. ")
 
                     # Check if the quantity is a number, default to 1 if not
                     if quantity.isdigit() == False:
@@ -156,7 +145,9 @@ while place_order:
                     else:
                         quantity = quantity
                     # Add the item name, price, and quantity to the order list
-
+                    order_list.append(menu_selection_name.keys())
+                    order_list.append(menu_selection_name.values())
+                    order_list.append(quantity)
 
                     # Tell the customer that their input isn't valid
                 else:
@@ -175,7 +166,7 @@ while place_order:
     while True:
         # Ask the customer if they would like to order anything else
         keep_ordering = input("Would you like to keep ordering? (Y)es or (N)o: ")
-
+        print(menu_dashes)
         # 5. Check the customer's input
         if keep_ordering.lower() == "y":
             # Keep ordering
@@ -204,13 +195,16 @@ print("This is what we are preparing for you:\n")
 
 print("Item name                 | Price  | Quantity")
 print("--------------------------|--------|----------")
-print(order_list)
-# 6. Loop through the items in the customer's order
 
+# 6. Loop through the items in the customer's order
+#for menu_index in range(len(menu)):
+for x in order_list:
+    break
     # 7. Store the dictionary items as variables
 
 
     # 8. Calculate the number of spaces for formatted printing
+
 
 
     # 9. Create space strings
