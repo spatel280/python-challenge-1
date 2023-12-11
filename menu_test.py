@@ -216,3 +216,6 @@ for x in order_list:
 # 11. Calculate the cost of the order using list comprehension
 # Multiply the price by quantity for each item in the order list, then sum()
 # and print the prices.
+item_cost = [quantity * price for price in order_list]
+total_cost = sum(item_cost)
+print(total_cost)
