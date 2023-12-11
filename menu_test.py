@@ -80,6 +80,7 @@ while place_order:
         i += 1
 
     # Get the customer's input
+    print(menu_dashes)
     menu_category = input("Type menu number: ")
 
     # Check if the customer's input is a number
@@ -92,7 +93,7 @@ while place_order:
             print(f"You selected {menu_category_name}")
 
             # Print out the menu options from the menu_category_name
-            print(f"What {menu_category_name} item would you like to order?")
+            print(f"Here are the {menu_category_name} options we have available:")
             i = 1
             menu_items = {}
             print(menu_dashes)
@@ -121,19 +122,19 @@ while place_order:
                     i += 1
             print(menu_dashes)
             # 2. Ask customer to input menu item number
-
+            menu_selection = input(f"What {menu_category_name} item would you like to order? ")
             # 3. Check if the customer typed a number
-
+            if menu_selection.isdigit():
                 # Convert the menu selection to an integer
-
+                menu_selection = int(menu_selection)
 
                 # 4. Check if the menu selection is in the menu items
-
+                if menu_selection in menu_items.keys():
                     # Store the item name as a variable
-
+                    menu_selection_name = menu_items[menu_selection]
 
                     # Ask the customer for the quantity of the menu item
-
+                    
 
                     # Check if the quantity is a number, default to 1 if not
 
@@ -142,10 +143,12 @@ while place_order:
 
 
                     # Tell the customer that their input isn't valid
-
+                else:
+                    print(f"{menu_selection} was not a sub-menu option.")
 
                 # Tell the customer they didn't select a menu option
-
+            else:
+                print("You didn't select a number.")
         else:
             # Tell the customer they didn't select a menu option
             print(f"{menu_category} was not a menu option.")
@@ -155,7 +158,7 @@ while place_order:
 
     while True:
         # Ask the customer if they would like to order anything else
-        keep_ordering = input("Would you like to keep ordering? (Y)es or (N)o ")
+        keep_ordering = input("Would you like to keep ordering? (Y)es or (N)o: ")
 
         # 5. Check the customer's input
         if keep_ordering.lower() == "y":
