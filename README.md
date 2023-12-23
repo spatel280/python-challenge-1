@@ -1,5 +1,5 @@
 # python-challenge-1
-Module Challenge 2
+Module 2 Challenge
 
 # Menu dictionary
 menu = {
